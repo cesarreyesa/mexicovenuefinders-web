@@ -1,0 +1,54 @@
+<header>
+    <div class="header-general">
+        <div class="header-contact">
+            <p>Venue Finding Agency</p>
+            <ul class="links-contact">
+                <li><span class="icon-android-call"></span><a href="tel:525541691444"> +52 55 41691444</a></li>
+                <li><span class="icon-android-mail"></span><a href="mailto:info@mexicovenuefinders.com">info@mexicovenuefinders.com</a>
+                </li>
+                <li><span class="icon-social-facebook"></span><a href="https://www.facebook.com/MexicoVenueFinders/"
+                                                                 target="_blank">Facebook</a></li>
+                <li><span class="icon-social-twitter"></span><a href="https://twitter.com/venuefinders" target="_blank">Twitter</a>
+                </li>
+            </ul>
+        </div>
+        <a class="header-logo header-logo-color" href="/"><img src="/img/logo.svg"/></a>
+        <a class="header-logo header-logo-white" href="/"><img src="/img/logo-white.svg"/></a>
+        <div class="header-tools">
+            <!--<div class="wishlist">-->
+            <!--<a class="btn btn-success" href="t-list-saved.html"><span class="icon-android-favorite"></span> <span class="wishlist-text">Favorites list</span> <span class="wishlist-number">0</span></a>-->
+            <!--</div>-->
+            <div class="menu-mobile">
+                <a href="#" class="btn btn-default"><span class="icon-android-menu"></span></a>
+            </div>
+
+        </div>
+        <ul class="header-nav-links">
+            <li><a href="/" class="active"><span class="align-middle">Home <span
+                    class="icon-android-arrow-forward icon-menu-list"></span></span></a></li>
+            <li><a href="/services"><span class="align-middle">Services <span
+                    class="icon-android-arrow-forward icon-menu-list"></span></span></a></li>
+            <li><a href="/about"><span class="align-middle">About Us <span
+                    class="icon-android-arrow-forward icon-menu-list"></span></span></a></li>
+            <li class="dropdown-menu">
+                <a href="#"><span class="align-middle">Destinations <span
+                        class="icon-android-arrow-forward icon-menu-list"></span></span></a>
+                <ul class="dropdown-menu-hover">
+                    {{ $destinations := getJSON .Site.Params.apiBaseURL "/api/destinations" }}
+                    {{ range $destinations }}
+                    <li><a href="/destinations/{{.uri}}">{{.name}}</a></li>
+                    {{ end }}
+                </ul>
+            </li>
+            <li><a href="/contact"><span class="align-middle">Contact <span
+                    class="icon-android-arrow-forward icon-menu-list"></span></span></a></li>
+            <li><a href="/rfp"><span class="align-middle">RFP <span
+                    class="icon-android-arrow-forward icon-menu-list"></span></span></a></li>
+            <li><a href="https://blog.mexicovenuefinders.com/" target="_blank"><span class="align-middle">Blog <span
+                    class="icon-android-arrow-forward icon-menu-list"></span></span></a></li>
+            <li><a href="/provider-register"><span class="align-middle">Quiero ser proveedor <span
+                    class="icon-android-arrow-forward icon-menu-list"></span></span></a></li>
+        </ul>
+    </div>
+</header>
+    

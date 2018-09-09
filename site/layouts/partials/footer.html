@@ -1,57 +1,88 @@
-<footer class="bg-black ph3 pv4 white">
+<!--Footer include-->
+<footer>
+    <div class="container">
+        <div class="box-footer">
+            <h4>Newsletter</h4>
+            <p>
+                Suscribe to our newsletter
+            </p>
+            <form id="newsletter-form" class="form-inline newsletter" action="/subscription-form">
+                <div class="alert alert-success alert-sm"><span
+                        class="icon-android-done"></span> Thank you for subscribing to our newsletter</div>
+                <div class="alert alert-warning alert-sm"><span
+                        class="icon-android-close"></span> Something went wrong, please try again with new email</div>
+                <div class="form-group">
+                    <label for="newsletter-email"></label>
+                    <input type="email" class="form-control" id="newsletter-email"
+                           placeholder="Your e-mail here please">
+                </div>
+                <!--<img class="loader" src="../img/loader-general.gif" alt="loader-gif"/>-->
+                <button type="submit" class="btn btn-success">Subscribe</button>
+            </form>
+        </div>
+        <div class="box-footer">
+            <h4>Contact us</h4>
+            <ul>
+                <li><span class="icon-android-call"></span><a href="tel:525541691444"> +52 55 41691444</a></li>
+                <li><span class="icon-android-mail"></span><a href="mailto:info@mexicovenuefinders.com">
+                    info@mexicovenuefinders.com</a></li>
+                <li><span class="icon-social-facebook"></span><a href="https://www.facebook.com/MexicoVenueFinders/"
+                                                                 target="_blank"> Facebook</a></li>
+                <li><span class="icon-social-twitter"></span><a href="https://twitter.com/venuefinders" target="_blank">
+                    Twitter</a></li>
+            </ul>
+        </div>
+        <div class="box-footer">
+            <h4>We are proud member of</h4>
+            <a class="link-logo" href="http://www.mpimexico.org.mx/home" target="_blank"><img src="/img/mpi-logo.jpg" alt="img-logo" style="width: 120px;"/></a>
+            <a class="link-logo" href="https://www.siteglobal.com" target="_blank"><img src="/img/site-logo.jpg" alt="img-logo" style="width: 120px;"/></a>
+        </div>
+        <div class="box-footer-row">
+            <div class="footer-details">
+                <p>México Venue Finders S. de R. L. de C.V. © {{ now.Format "2006"}} All rights reserved </p>
+                <a href="/terms">Term & Conditions</a>
+                <a href="/links">Recommended links</a>
+                <a href="/faqs">Frequently Asked Questions</a>
+            </div>
+        </div>
+    </div>
 
-	<div class="mw7 center pt3">
+    <script type="application/javascript">
 
-		<div class="measure-narrow center mb4">
+        $(function () {
+            $('#newsletter-form').submit(function (e) {
+                e.preventDefault();
+//                $('#newsletter-form.loader').show();
+                var $form = $( this ), url = $form.attr( 'action' );
 
-			<img src="/img/logo.svg" alt="Kaldi logo" class="db w4 center mb4 br0">
-			<p class="f3 lh-title light-gray b tc mb2">Newsletter subscribe</p>
-			<p>Get awesome news from us in your inbox every two weeks. Be the first to learn about new products.</p>
+                var email = $('#newsletter-email').val();
+                var request = $.post(url, {email: email});
 
-			{{ partial "newsletter-form" . }}
+                request.done(function( data ) {
+                    $('#newsletter-form .alert-success').fadeIn().delay(5000).fadeOut();
+                    $('#newsletter-email').val('');
+//                    $('#newsletter-form.loader').hide();
+                });
+            });
+        });
 
-		</div>
+    </script>
 
-		<div class="flex-ns justify-between">
+    <script type="text/javascript">
 
-			<div>
-				<h3 class="f4 b lh-title mb1 primary">Kaldi</h3>
-				<ul class="mb3">
-					<li><a href="/" class="link">Home</a></li>
-					<li><a href="/products" class="link">Our products</a></li>
-					<li><a href="/values" class="link">About</a></li>
-					<li><a href="/post" class="link">Blog</a></li>
-					<li><a href="/contact" class="link">Contact</a></li>
-				</ul>
-			</div>
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-484797-4']);
+        _gaq.push(['_trackPageview']);
 
-			<div>
-				<h3 class="f4 b lh-title mb1 primary">Find out more</h3>
-				<ul class="mb3">
-					<li><a href="/post/jamaica-blue/" class="link">Latest offers</a></li>
-					<li><a href="/contact" class="link">Schedule and appointment</a></li>
-				</ul>
-			</div>
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
 
-			<div>
-				<h3 class="f4 b lh-title mb2 primary">Social media</h3>
-				<ul class="mhn2">
-					{{ partial "social-icon" (dict "link" "#" "svg" "icons-facebook") }}
-					{{ partial "social-icon" (dict "link" "#" "svg" "icons-twitter") }}
-					{{ partial "social-icon" (dict "link" "#" "svg" "icons-instagram") }}
-					{{ partial "social-icon" (dict "link" "#" "svg" "icons-vimeo") }}
-				</ul>
-			</div>
-
-		</div>
-	</div>
+    </script>
 
 </footer>
-
-{{ partial "svg" . }}
-
-<script src="/app.js"></script>
-
-</body>
-
-</html>

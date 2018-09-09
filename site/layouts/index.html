@@ -1,13 +1,124 @@
 {{ define "main" }}
 
-{{ partial "jumbotron" (dict "imageUrl" .Params.image "title" .Title "subtitle" .Params.subtitle) }}
-
-{{ partial "short-text" .Params.blurb}}
-
-{{ partial "2-up" .Params }}
-
-{{ partial "text-and-image" (dict "heading" .Params.values.heading "text" .Params.values.text "buttonText" "Read more" "buttonLink" "/values") }}
-
-{{ partial "blog" . }}
+<!--Contenido-->
+<div class="banner-home">
+    <div class="banner-booker">
+        <h1>{{ .Title }}
+        </h1>
+        <h2>{{ .Params.subtitle }}</h2>
+        <div class="booker booker-home">
+            <form class="form-inline search-form">
+                <div class="form-group">
+                    <div class="select select-first">
+                        <select id="destinations" class="form-control">
+                            <option>Destination</option>
+                            <option>All destinations</option>
+                            {{ $destinations := getJSON .Site.Params.apiBaseURL "/api/destinations" }}
+                            {{ range $destinations }}
+                                <option value="{{.id}}">{{.name}}</option>
+                            {{ end }}
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="select">
+                        <select id="venueTypes" class="form-control">
+                            <option value="all">Venue type or supplier</option>
+                            <option value="only_venues">All venues</option>
+                            <option value="only_suppliers">All suppliers</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success btn-search-action">Search</button>
+                <div class="booker-loader">
+                    <img src="../img/loader-search.gif" alt="loader" />
+                </div>
+            </form>
+        </div> 
+        <a data-remodal-target="about-modal" class="link-about" onclick="event.preventDefault();"><span class="icon-info-circled"></span> What we do</a>
+    </div>
+</div>
+<div class="flexslider">
+    <span class="mask-flexslider"></span>
+    <ul class="slides">
+        {{range $element := .Params.slides}}
+            <li>
+                <img class="" src="{{ $element }}" alt="img-slide" />
+            </li>                
+        {{ end }}
+    </ul>
+</div>
+<div class="footer-slider">
+    <div class="container">
+        <div class="two-columns">
+            <div class="left-column">
+                <div class="icon-description">
+                    <img src="../img/icon.png" alt="icon"/>
+                    <div class="content-description">
+                        <h3><strong>Certifed hotels in México</strong></h3>
+                        <p>Choose a hotel here by your preferred certification or affiliation</p>
+                        <a href="/certified-hotels">View hotels <span class="icon-action icon-android-arrow-forward"></span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="right-column">
+                <div class="icon-description">
+                    <img src="../img/icon2.png" alt="icon"/>
+                    <div class="content-description">
+                        <h3><strong>Convention &amp; Visitors Bureau in Mexico</strong></h3>
+                        <p>List of the Convention & Visitors Bureaus in Mexico</p>
+                        <a href="/conventions">View conventions <span class="icon-action icon-android-arrow-forward"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="line-title">
+        <h3>Preferred destinations <span class="line-subtitle">Give us a call if you think in a particular city or area</span></h3>
+    </div>
+    <ul class="grid grid-photo">
+            {{ $featured_destinations := getJSON .Site.Params.apiBaseURL "/api/destinations/featured" }}
+            {{ range $featured_destinations }}
+                <li class="grid-photo-item">
+                    <a class="" href="{{.uri}}" alt="img-destination">
+                        <div class="grid-photo-name">
+                            <span class="grid-photo-title">{{.name}}</span>
+                            <span class="grid-photo-subtitle">
+                                <!--//TODO: .grid-photo-name cuando se agreguen num de venues cambiar a 50px-->
+                                <!--87 Venues -->
+                                <!--<span class="icon-android-arrow-forward"></span>-->
+                            </span>
+                        </div>
+                        <span class="grid-photo-mask"></span>
+                        <img class="grid-photo-img" class="" 
+                            src="../img/{{.uri}}.jpg" 
+                            alt="img-grid" style="width: 270px;height: 270px;" />
+                    </a>
+                </li>
+            {{ end }}
+    </ul>
+    <div class="line-title">
+        <h3>See our recommendation for Cancun destination</h3>
+    </div>
+    <div class="container">
+        <div class="card-provider">
+            <a href="http://www.romancecancun.com/" target="_blank">
+                <img src="/img/cancunromance.png" />
+            </a>
+        </div>
+        <div class="card-provider">
+            <a href="https://www.airporttransfersincancun.com/" target="_blank">
+                <img src="/img/transportation.png" />
+            </a>
+        </div>
+        <div class="card-provider">
+            <a href="http://www.dmcincancun.com/" target="_blank">
+                <img src="/img/dmc.png" />
+            </a>
+        </div>
+    </div>
+</div>
 
 {{ end }}

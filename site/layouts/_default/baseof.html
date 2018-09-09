@@ -1,9 +1,71 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
-  {{ partial "head" . }}
-  <body class="sans-serif">
-    {{ partial "nav" . }}
-    {{ block "main" . }}{{ end }} 
-    {{ partial "footer" . }} 
-  </body>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>México Venue Finders | Home</title>
+
+    <link rel="shortcut icon" type="image" href="/img/favicon.ico"/>
+    <link rel=stylesheet href="/css/base.css">
+    <link rel=stylesheet href="/css/home.css">
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <script src="/js/mvf.js"></script>
+</head>
+<body id="home-page">
+
+{{ partial "header.html" . }}
+
+<!--Popups-->
+<div class="remodal" data-remodal-id="about-modal">
+    <button data-remodal-action="close" class="remodal-close"></button>
+    <img class="logo-modal" src="/img/logo.svg" />
+    <p>
+        We are a specialized meeting and event advisors throughout Mexico. We focus all our efforts to assist and lead Meeting, Incentive & Event Planners to plan and organize their events throughout our country. Over the years of experience, we have built and gained a great reputation that empower us with a tremendous purchasing and negotiation skills for your advantage. We turn your ideas into a Wow factor
+    </p>
+    <ul class="list-check">
+        <li><span class="icon-android-done"></span> Venue finding services</li>
+        <li><span class="icon-android-done"></span> Meeting & Event Planning</li>
+    </ul>
+    <ul class="links-contact">
+        <li><span class="icon-android-call"></span><a href="tel.525584216502"> +52 55 41691444</a></li>
+        <li><span class="icon-android-mail"></span><a href="mailto:info@mexicovenuefinders.com"> info@mexicovenuefinders.com</a></li>
+        <li><span class="icon-social-facebook"></span><a href="https://www.facebook.com/MexicoVenueFinders/" target="_blank"> Facebook</a></li>
+        <li><span class="icon-social-twitter"></span><a href="https://twitter.com/venuefinders" target="_blank"> Twitter</a></li>
+    </ul>
+</div>
+
+{{ block "main" . }}
+<!-- The part of the page that begins to differ between templates -->
+{{ end }} 
+
+<script>
+
+    $(window).ready(mvf.setupHome);
+
+</script>
+
+{{ partial "footer.html" .}}
+
+<!--JS-->
+<script type="text/javascript" src="/js/jquery.flexslider-min.js"></script>
+<script type="text/javascript" src="/js/remodal.js"></script>
+<script type="text/javascript" src="/js/ui-global.js"></script>
+<!--flexslider-->
+<script type="text/javascript">
+    $( document ).ready(function() {
+        $('.flexslider').flexslider({
+            animation: "fade",
+            pauseOnHover: false,
+            controlNav: false,
+            directionNav:false,
+            animationLoop: true,
+            animationSpeed: 600,
+        });
+    });
+</script>
+<!--termina script include-->
+<!--Termina include por Jquery-->
+</body>
 </html>

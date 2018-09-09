@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="123px" height="123px" viewBox="0 0 123 123" enable-background="new 0 0 123 123" xml:space="preserve">
+<g id="email-enveloppe">
+	<g>
+		<path fill="#00334E" d="M61.5,0C27.535,0,0,27.535,0,61.5S27.535,123,61.5,123c33.964,0,61.5-27.535,61.5-61.5S95.465,0,61.5,0z"
+			/>
+		<g id="_x31_1">
+			<g id="icon">
+				<g id="envelope_1_">
+					<path fill="#E6E6E6" d="M82.463,47.637L54.848,68.811l27.615,21.174c1.281,0,2.334-1.051,2.334-2.334V49.972
+						C84.797,48.688,83.744,47.637,82.463,47.637z"/>
+					<path fill="#FCFCFC" d="M27.23,47.637c-1.283,0-2.334,1.051-2.334,2.334V87.65c0,1.283,1.051,2.334,2.334,2.334l27.618-21.174
+						L27.23,47.637z"/>
+					<polygon fill="#CDCDCD" points="26.648,89.984 83.046,89.984 54.848,64.83 					"/>
+					<polygon fill="#F0F0F0" points="27.23,89.984 82.463,89.984 54.848,65.997 					"/>
+					<polygon fill="#CCD1D9" points="82.463,48.223 27.23,48.223 55.429,76.876 					"/>
+					<polygon fill="#FFFFFF" points="82.463,47.637 27.23,47.637 54.846,71.624 					"/>
+				</g>
+				<g id="pointer">
+					<path fill="#F05133" d="M86.499,27.849c-9.79,0-17.726,6.575-17.726,14.691c0,4.081,2.004,7.771,5.254,10.437l-1.118,7.527
+						l6.732-4.416c2.111,0.734,4.431,1.14,6.86,1.14c9.794,0,17.729-6.578,17.729-14.688
+						C104.228,34.424,96.294,27.849,86.499,27.849z"/>
+					<g id="shadow_2_">
+						<polygon id="color_2_" fill="#CCD1D9" points="70.328,60.503 84.797,70.977 84.797,65.141 						"/>
+					</g>
+				</g>
+			</g>
+		</g>
+	</g>
+</g>
+<g id="Layer_1_1_">
+</g>
+<g transform="translate(144 336)">
+	<path fill="#FFFFFF" d="M-49.2-303.236h-6.622l-8.198,9.955h6.587l-8.313,9.954l17.77-12.964h-6.942L-49.2-303.236z"/>
+</g>
+</svg>
